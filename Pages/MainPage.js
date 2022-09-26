@@ -42,21 +42,9 @@ export default function MainPage(props, { navigation }) {
         }
     }, [refreshing]);
 
-
-    useEffect(() => {
-        const subscription = RNShake.addListener(() => {
-            console.log("sallandı");
-        })
-
-        return () => {
-            console.log("sallandı1");
-            subscription.remove()
-        }
-    }, [])
-
-    const updateRow = (data, rowKey, name,tarih1,tarih2,description,category) => {
-        console.log(name+tarih1+description+category);
-        props.navigation.navigate("AddPage", { fromUpdate:true,id: rowKey, name: name, tarih1: tarih1, tarih2: tarih2, description: description, category: category })
+    const updateRow = ( rowKey, id,name,tarih1,tarih2,description,category) => {
+        console.log(rowKey+name+tarih1+description+category);
+        props.navigation.navigate("AddPage", { fromUpdate:true,id: id, name: name, tarih1: tarih1, tarih2: tarih2, description: description, category: category })
     };
     const deleteRow = async (rowMap, rowKey) => {
 
@@ -77,8 +65,7 @@ export default function MainPage(props, { navigation }) {
     };
 
     const onRowDidOpen = rowKey => {
-        console.log('This row opened', rowKey);
-        console.log(incomingData[0]);
+
     };
 
 
@@ -132,8 +119,8 @@ export default function MainPage(props, { navigation }) {
                         leftOpenValue={100}
                         rightOpenValue={-100}
                         previewRowKey={'0'}
-                        previewOpenValue={-40}
-                        previewOpenDelay={1000}
+                        previewOpenValue={-100}
+                        previewOpenDelay={50}
                         onRowDidOpen={onRowDidOpen}
                     />
 

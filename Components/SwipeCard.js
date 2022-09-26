@@ -8,20 +8,13 @@ import {
     responsiveScreenWidth,
     responsiveScreenFontSize
 } from "react-native-responsive-dimensions";
-import Swipeable from 'react-native-gesture-handler/Swipeable';
+
 import { useFonts } from 'expo-font';
-import * as Font from 'expo-font';
-import { useEffect,useState } from 'react';
-import useFontsx from '../Connections/Hooks';
-import AppLoading from 'expo-app-loading';
+
+
 
 export default function SwipeCard(props) {
-    const [IsReady, SetIsReady] = useState(false);
-    const image = { uri: "https://docs.expo.dev/static/images/tutorial/splash.png" };
 
-    const LoadFonts = async () => {
-        await useFontsx();
-      };
 
     const [fontsLoaded] = useFonts({
         'Rubik-Dirt': require('../assets/fonts/RubikDirt-Regular.ttf'),
@@ -32,15 +25,7 @@ export default function SwipeCard(props) {
       });
      
 
-  if (!IsReady) {
-    return (
-      <AppLoading
-        startAsync={LoadFonts}
-        onFinish={() => SetIsReady(true)}
-        onError={() => {}}
-      />
-    );
-  }
+
 
     return (
         <TouchableOpacity activeOpacity={1} onPress={()=>props.navigation.navigate('DetailPage',{id:props.id,name:props.name,tarih1:props.tarih1,tarih2:props.tarih2,description:props.description,category:props.category})}>

@@ -78,6 +78,12 @@ export default function AddPage(props) {
         })
             .then(response => response.json())
             .then(json => console.log(json));
+        
+        setCategory("");
+        setDescription("");
+        setbookName("");
+        setfinishDate("");
+        setstartDate("");
         props.navigation.navigate('MainPage');
     } catch (error) {
         Alert.alert(error + "API Error")
@@ -99,6 +105,11 @@ export default function AddPage(props) {
             })
                 .then(response => response.json())
                 .then(json => console.log(json));
+                setCategory("");
+                setDescription("");
+                setbookName("");
+                setfinishDate("");
+                setstartDate("");
             props.navigation.navigate('MainPage');
         } catch (error) {
             Alert.alert(error + "API Error")
@@ -115,12 +126,12 @@ export default function AddPage(props) {
 
 
   return (
-    <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: "https://img.freepik.com/free-vector/flat-comic-style-background-copy-space_52683-54924.jpg?w=2000" }} resizeMode="cover" blurRadius={10} style={{ justifyContent: 'center', width: responsiveScreenWidth(110), height: responsiveScreenHeight(95), alignSelf: 'center', marginTop: 20, elevation: 80 }}>
+    <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: "https://img.freepik.com/free-vector/flat-comic-style-background-copy-space_52683-54924.jpg?w=2000" }} resizeMode="cover" blurRadius={10} style={{ justifyContent: 'center', width: responsiveScreenWidth(100), height: responsiveScreenHeight(95), alignSelf: 'center', marginTop: 20, elevation: 80 }}>
 
-    <View style={{height:responsiveScreenHeight(90),marginTop:StatusBar.currentHeight}}>
+    <View style={{height:responsiveScreenHeight(90),marginTop:StatusBar.currentHeight,width:responsiveScreenWidth(90),alignSelf:'center'}}>
  
     <View style={{height:responsiveScreenHeight(8),width:responsiveScreenWidth(30),marginLeft:20}}>
-      <Button icon="arrow-left-circle" mode="contained" onPress={() => props.navigation.goBack()}>
+      <Button icon="arrow-left-circle" mode="contained" onPress={() => props.navigation.navigate('MainPage')}>
     Geri Dön
   </Button>
         </View>
